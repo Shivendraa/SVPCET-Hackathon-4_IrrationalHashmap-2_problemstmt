@@ -78,7 +78,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/newApp">
+                    android:id="@+id/newUser">
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -116,7 +116,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/checkApp">
+                    android:id="@+id/loginUser">
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -169,7 +169,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/newKyc">
+                    android:id="@+id/regAuth">
 
                     <ImageView
                         android:id="@+id/imageView5"
@@ -209,7 +209,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/logKyc">
+                    android:id="@+id/chkStatus">
 
                     <ImageView
                         android:id="@+id/imageView6"

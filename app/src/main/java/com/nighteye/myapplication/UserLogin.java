@@ -7,50 +7,41 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity {
-    private RelativeLayout newUser, loginUser, regAuth, logKyc, nHelp, nAbout;
+import com.google.android.material.textfield.TextInputLayout;
+
+public class UserLogin extends AppCompatActivity {
+    private TextInputLayout uName,uPass;
     private boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION ;
-        decorView.setSystemUiVisibility(uiOptions);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_user_login);
 
-        newUser = findViewById(R.id.newUser);
-        loginUser = findViewById(R.id.loginUser);
-        regAuth = findViewById(R.id.regAuth);
-        logKyc = findViewById(R.id.chkStatus);
-        nHelp = findViewById(R.id.help);
-        nAbout = findViewById(R.id.about);
+        uName = findViewById(R.id.username);
+        uPass = findViewById(R.id.password);
+        Button newUser = findViewById(R.id.newUser);
+        Button btnLogin = findViewById(R.id.btnLogin);
 
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,UserRegistration.class);
+                Intent intent = new Intent(UserLogin.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
-        loginUser.setOnClickListener(new View.OnClickListener() {
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, UserLogin.class);
+                Intent intent = new Intent(UserLogin.this, UserDashBoard.class);
                 startActivity(intent);
             }
         });
-        regAuth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, AuthorityRegistration.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
