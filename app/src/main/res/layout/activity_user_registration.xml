@@ -17,35 +17,19 @@
             android:background="#fff"
             android:padding="15dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="40dp"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/splashbg"
-                    android:layout_marginEnd="10dp"
-                    android:contentDescription="@string/todo" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Welcome to Smart City Complaint System!"
-                    android:textColor="#AA000000"
-                    android:textSize="28sp" />
-
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Thank you for registering!"
+                android:textColor="#AA000000"
+                android:textSize="28sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register here for using System."
+                android:text="Please provide following information to let us know where do you belong."
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black" />
@@ -61,24 +45,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/email"
-                    android:hint="Enter Email"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/name"
-                    android:hint="Enter Full Name"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
+                    android:id="@+id/addr1"
+                    android:hint="Address Line 1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -89,8 +58,21 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/userName"
-                    android:hint="Enter UserName"
+                    android:id="@+id/addr2"
+                    android:hint="Address Line 2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/city"
+                    android:hint="City"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     >
 
@@ -98,6 +80,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etCountry"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Select State ">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/drop_down"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        tools:ignore="LabelFor" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -105,49 +103,24 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/pass"
                     app:passwordToggleEnabled="true"
-                    android:hint="Enter Password"
+                    android:hint="Select State"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/repass"
-                    android:hint="Re-enter Password"
-                    app:passwordToggleEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"/>
+                        android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Register"
+                    android:text="Continue to Dashboard!"
                     android:background="#000"
                     android:textColor="#fff"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp" />
-
-                <Button
-                    android:id="@+id/newLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#0F000000"
-                    android:text="Already a user? Log in"
-                    android:textColor="#000"
-                    android:layout_gravity="end"
-                    android:elevation="6dp"
-                    android:layout_margin="5dp" />
 
             </LinearLayout>
 
