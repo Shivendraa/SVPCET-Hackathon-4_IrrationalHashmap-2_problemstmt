@@ -31,6 +31,7 @@ public class UserLogin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserLogin.this, HomeActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -39,6 +40,7 @@ public class UserLogin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserLogin.this, UserDashBoard.class);
                 startActivity(intent);
+                finish();
             }
         });
 

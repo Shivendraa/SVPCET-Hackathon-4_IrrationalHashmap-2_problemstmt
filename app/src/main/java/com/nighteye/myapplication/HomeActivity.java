@@ -35,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this,UserRegistration.class);
                 startActivity(intent);
+                finish();
             }
         });
         loginUser.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, UserLogin.class);
                 startActivity(intent);
+                finish();
             }
         });
         regAuth.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, AuthorityRegistration.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
