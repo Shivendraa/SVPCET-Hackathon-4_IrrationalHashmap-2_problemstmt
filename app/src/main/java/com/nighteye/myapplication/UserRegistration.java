@@ -29,19 +29,19 @@ public class UserRegistration extends AppCompatActivity {
         Button newLogin = findViewById(R.id.newLogin);
         Button btnRegister = findViewById(R.id.btnRegister);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        newLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserRegistration.this, UserRegisterNextStep.class);
+                Intent intent = new Intent(UserRegistration.this, UserLogin.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        newLogin.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserRegistration.this, UserLogin.class);
+                Intent intent = new Intent(UserRegistration.this, UserRegNextStep.class);
                 startActivity(intent);
                 finish();
             }
