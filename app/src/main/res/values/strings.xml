@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="textSlogan">For a Change, Be The Change</string>
+    <string name="todo">TODO</string>
+    <string name="need_help">Need help?</string>
+    <string name="about">About</string>
+    <string name="just_few_steps_to_be_a_part_of_change">Just few steps to be a part of change!</string>
+    <string name="city_status">City Status</string>
+    <string name="authority_login_signup">Authority Login/Signup</string>
+    <string name="user_log_in">User Log in</string>
+    <string name="new_user">New User</string>
+    <string name="smart_city_complaint">Smart City Complaint</string>
+</resources>
