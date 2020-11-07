@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "745980525119",
+    "firebase_url": "https://smart-city-complaint.firebaseio.com",
+    "project_id": "smart-city-complaint",
+    "storage_bucket": "smart-city-complaint.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745980525119:android:5bb4e3f244cd636cf0568a",
+        "android_client_info": {
+          "package_name": "com.nighteye.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745980525119-30r9hgkaj48tj4eit7glq182b2jdb68h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0IvaMCuIWbi6yzKLMSnYNAODeFyDlWfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745980525119-30r9hgkaj48tj4eit7glq182b2jdb68h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

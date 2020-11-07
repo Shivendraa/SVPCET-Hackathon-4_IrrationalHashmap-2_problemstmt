@@ -11,10 +11,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class UserRegNextStep extends AppCompatActivity {
     private TextInputLayout contact, addr1, addr2, city, etState, pincode;
-
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +44,38 @@ public class UserRegNextStep extends AppCompatActivity {
         btnToDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String suname = getIntent().getStringExtra("userName");
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("DataStore");
+                String spincode = Objects.requireNonNull(pincode.getEditText()).getText().toString();
+                String scontact = Objects.requireNonNull(contact.getEditText()).getText().toString();
+                String saddr1 = Objects.requireNonNull(addr1.getEditText()).getText().toString();
+                String saddr2 = Objects.requireNonNull(addr2.getEditText()).getText().toString();
+                String scity = Objects.requireNonNull(city.getEditText()).getText().toString();
                 String state = stateDd.getText().toString();
 
-                Intent intent = new Intent(UserRegNextStep.this, UserDashBoard.class);
-                startActivity(intent);
-                finish();
+                if(scontact.isEmpty() || saddr1.isEmpty() || saddr2.isEmpty() || scity.isEmpty() || spincode.isEmpty() || state.isEmpty())
+                {
+                    if(scontact.isEmpty())
+                        contact.setError("Contact Can Not Be Empty");
+                    if(saddr1.isEmpty())
+                        addr1.setError("Address can Not be Empty");
+                    if(scity.isEmpty())
+                        city.setError("City can Not be Empty");
+                    if(state.isEmpty())
+                        etState.setError("State can Not be Empty");
+                    if(spincode.isEmpty())
+                        pincode.setError("Post Code can Not be Empty");
+                }
+                else {
+                    UserHelper user = new UserHelper(scontact,saddr1,saddr2,scity,state,spincode);
+                    reference.child("Users").child(suname).setValue(user);
+                    Intent intent = new Intent(UserRegNextStep.this, UserDashBoard.class);
+                    intent.putExtra("userName",suname);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
