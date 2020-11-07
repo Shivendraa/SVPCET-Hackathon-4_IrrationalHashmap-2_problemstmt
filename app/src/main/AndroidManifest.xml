@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AuthDashBoard"></activity>
+        <activity android:name=".AuthLogin"></activity>
+        <activity android:name=".AuthDashBoard" />
         <activity android:name=".AuthRegNextStep" />
         <activity android:name=".UserRegNextStep" />
         <activity android:name=".UserDashBoard" />

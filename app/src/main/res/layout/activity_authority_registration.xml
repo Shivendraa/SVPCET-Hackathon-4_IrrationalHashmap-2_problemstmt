@@ -89,7 +89,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/AutUName"
+                    android:id="@+id/autUName"
                     android:hint="Enter UserName"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     >
@@ -132,7 +132,7 @@
                     android:id="@+id/autBtnRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Register"
+                    android:text="Next"
                     android:background="#000"
                     android:textColor="#fff"
                     android:layout_marginTop="20dp"

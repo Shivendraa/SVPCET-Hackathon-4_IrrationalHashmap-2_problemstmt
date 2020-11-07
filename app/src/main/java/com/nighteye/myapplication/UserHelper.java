@@ -2,6 +2,7 @@ package com.nighteye.myapplication;
 
 public class UserHelper {
     private String email, name, username, password;
+    private String AuthEmail, AuthName, AuthUsername, AuthPassword, AuthContact, AuthPosition, AuthDocumentType, AuthCity, AuthState;
     private String contact, Address1, Address2, City, State, PostCode;
 
     public UserHelper(String email, String name, String username, String password) {
@@ -100,5 +101,87 @@ public class UserHelper {
         PostCode = postCode;
     }
 
+    public UserHelper(String authEmail, String authName, String authUsername, String authPassword, String authContact, String authPosition, String authDocumentType, String authCity, String authState) {
+        AuthEmail = authEmail;
+        AuthName = authName;
+        AuthUsername = authUsername;
+        AuthPassword = authPassword;
+        AuthContact = authContact;
+        AuthPosition = authPosition;
+        AuthDocumentType = authDocumentType;
+        AuthCity = authCity;
+        AuthState = authState;
+    }
 
+    public String getAuthEmail() {
+        return AuthEmail;
+    }
+
+    public void setAuthEmail(String authEmail) {
+        AuthEmail = authEmail;
+    }
+
+    public String getAuthName() {
+        return AuthName;
+    }
+
+    public void setAuthName(String authName) {
+        AuthName = authName;
+    }
+
+    public String getAuthUsername() {
+        return AuthUsername;
+    }
+
+    public void setAuthUsername(String authUsername) {
+        AuthUsername = authUsername;
+    }
+
+    public String getAuthPassword() {
+        return AuthPassword;
+    }
+
+    public void setAuthPassword(String authPassword) {
+        AuthPassword = authPassword;
+    }
+
+    public String getAuthContact() {
+        return AuthContact;
+    }
+
+    public void setAuthContact(String authContact) {
+        AuthContact = authContact;
+    }
+
+    public String getAuthPosition() {
+        return AuthPosition;
+    }
+
+    public void setAuthPosition(String authPosition) {
+        AuthPosition = authPosition;
+    }
+
+    public String getAuthDocumentType() {
+        return AuthDocumentType;
+    }
+
+    public void setAuthDocumentType(String authDocumentType) {
+        AuthDocumentType = authDocumentType;
+    }
+
+    public String getAuthCity() {
+        return AuthCity;
+    }
+
+    public void setAuthCity(String authCity) {
+        AuthCity = authCity;
+    }
+
+    public String getAuthState() {
+        return AuthState;
+    }
+
+    public void setAuthState(String authState) {
+        AuthState = authState;
+    }
 }

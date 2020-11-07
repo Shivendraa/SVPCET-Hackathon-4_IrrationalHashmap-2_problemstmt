@@ -1,5 +1,6 @@
 package com.nighteye.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,17 +15,32 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class AuthRegNextStep extends AppCompatActivity {
-    private TextInputLayout autContact, autPos, autDoctype, autCity;
+    private TextInputLayout autContact, autPos, autDoctype, autCity, autState;
+
     EditText autDocPic;
     private  Uri filePath1;
     private static final int PICK_IMAGE_REQUEST = 234;
+
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
+    private StorageReference mStorageRef;
+    private String sauthusername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +51,7 @@ public class AuthRegNextStep extends AppCompatActivity {
         autPos = findViewById(R.id.autPos);
         autDoctype = findViewById(R.id.etAutDocType);
         autCity = findViewById(R.id.autCity);
+        autState = findViewById(R.id.etAutState);
 
         String[] docTypes = new String[] {"PAN Card", "Aadhar Card", "Voter ID", "Recommendation from Mayor", "Recommendation from State Govt", "Recommendation from Central Govt" };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item, docTypes);
@@ -64,14 +81,68 @@ public class AuthRegNextStep extends AppCompatActivity {
         btnToDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String state = stateDd.getText().toString();
 
-                Intent intent = new Intent(AuthRegNextStep.this, AuthDashBoard.class);
-                startActivity(intent);
-                finish();
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("DataStore");
+                mStorageRef = FirebaseStorage.getInstance().getReference();
+
+                sauthusername = getIntent().getStringExtra("AuthUserName");
+                String sauthname = getIntent().getStringExtra("AuthName");
+                String sauthemail = getIntent().getStringExtra("AuthEmail");
+                String sauthpass = getIntent().getStringExtra("AuthPass");
+
+                String sauthcontact = Objects.requireNonNull(autContact.getEditText()).getText().toString();
+                String sauthposition = Objects.requireNonNull(autPos.getEditText()).getText().toString();
+                String sauthdoctype = docTypeDd.getText().toString();
+                String sauthcity = Objects.requireNonNull(autCity.getEditText()).getText().toString();
+                String sauthstate = stateDd.getText().toString();
+
+                if(sauthcontact.isEmpty() || sauthposition.isEmpty() || sauthdoctype.isEmpty() || sauthcity.isEmpty() || sauthstate.isEmpty())
+                {
+                    if(sauthcontact.isEmpty())
+                        autContact.setError("Contact Can Not Be Empty");
+                    if(sauthposition.isEmpty())
+                        autPos.setError("Authority position can Not be Empty");
+                    if(sauthcity.isEmpty())
+                        autCity.setError("City can Not be Empty");
+                    if(sauthdoctype.isEmpty())
+                        autDoctype.setError("State can Not be Empty");
+                    if(sauthstate.isEmpty())
+                        autState.setError("Post Code can Not be Empty");
+                }
+                else {
+                    uploadFile();
+                    UserHelper user = new UserHelper(sauthemail,sauthname,sauthusername,sauthpass,sauthcontact,sauthposition,sauthdoctype,sauthcity,sauthstate);
+                    reference.child("Authority").child(sauthusername).child("Details").setValue(user);
+                    Intent intent = new Intent(AuthRegNextStep.this, AuthDashBoard.class);
+                    intent.putExtra("AuthUserName",sauthusername);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
+    }
+
+    private void uploadFile()
+    {
+        if(filePath1 != null){
+            StorageReference riversRef1 = mStorageRef.child("Authority Docs/"+sauthusername+"/AuthorizationProof.jpg");
+            riversRef1.putFile(filePath1)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                        }
+                    });
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Image not selected",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
