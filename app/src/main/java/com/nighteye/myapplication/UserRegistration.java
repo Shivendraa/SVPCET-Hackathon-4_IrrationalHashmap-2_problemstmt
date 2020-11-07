@@ -72,7 +72,7 @@ public class UserRegistration extends AppCompatActivity {
                 }
                 else {
                     UserHelper user = new UserHelper(semail,sname,suname,spass);
-                    reference.child("Users").child(suname).setValue(user);
+                    reference.child("Users").child(suname).child("Basic Details").setValue(user);
                     Intent intent = new Intent(UserRegistration.this, UserRegNextStep.class);
                     intent.putExtra("userName",suname);
                     startActivity(intent);
