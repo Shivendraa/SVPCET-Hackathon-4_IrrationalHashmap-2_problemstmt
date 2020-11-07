@@ -122,7 +122,7 @@ public class UserLogin extends AppCompatActivity {
                     String emailFromDB = Objects.requireNonNull(dataSnapshot.child("Basic Details").child("email").getValue()).toString();
                     String passFromDB = Objects.requireNonNull(dataSnapshot.child("Basic Details").child("password").getValue()).toString();
                     String nameFromDB = Objects.requireNonNull(dataSnapshot.child("Basic Details").child("name").getValue()).toString();
-                    if(userEnteredPassword.equalsIgnoreCase(passFromDB)) {
+                    if(userEnteredPassword.equals(passFromDB)) {
                         Intent intent = new Intent(getApplicationContext(),UserDashBoard.class);
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("mail",emailFromDB);

@@ -71,8 +71,8 @@ public class UserRegNextStep extends AppCompatActivity {
                 else {
                     UserHelper user = new UserHelper(scontact,saddr1,saddr2,scity,state,spincode);
                     reference.child("Users").child(suname).child("Address").setValue(user);
-                    Intent intent = new Intent(UserRegNextStep.this, UserDashBoard.class);
-                    intent.putExtra("userName",suname);
+                    Intent intent = new Intent(UserRegNextStep.this, RegisterSuccess.class);
+                    intent.putExtra("UserName",suname);
                     startActivity(intent);
                     finish();
                 }

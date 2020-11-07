@@ -114,8 +114,8 @@ public class AuthRegNextStep extends AppCompatActivity {
                     uploadFile();
                     UserHelper user = new UserHelper(sauthemail,sauthname,sauthusername,sauthpass,sauthcontact,sauthposition,sauthdoctype,sauthcity,sauthstate);
                     reference.child("Authority").child(sauthusername).child("Details").setValue(user);
-                    Intent intent = new Intent(AuthRegNextStep.this, AuthDashBoard.class);
-                    intent.putExtra("AuthUserName",sauthusername);
+                    Intent intent = new Intent(AuthRegNextStep.this, RegisterSuccess.class);
+                    intent.putExtra("UserName",sauthusername);
                     startActivity(intent);
                     finish();
                 }

@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         regAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, AuthorityRegistration.class);
+                Intent intent = new Intent(HomeActivity.this, AuthLogin.class);
                 startActivity(intent);
                 finish();
             }

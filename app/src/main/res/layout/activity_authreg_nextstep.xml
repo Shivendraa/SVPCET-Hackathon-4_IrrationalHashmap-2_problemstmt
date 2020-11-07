@@ -139,7 +139,7 @@
                     android:id="@+id/autBtnToDB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Continue to Dashboard!"
+                    android:text="Complete Registration"
                     android:background="#000"
                     android:textColor="#fff"
                     android:layout_marginTop="20dp"
