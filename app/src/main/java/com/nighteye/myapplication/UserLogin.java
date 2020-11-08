@@ -126,7 +126,7 @@ public class UserLogin extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(),UserDashBoard.class);
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("mail",emailFromDB);
-                        intent.putExtra("uname",userEnteredUsername);
+                        intent.putExtra("username",userEnteredUsername);
                         startActivity(intent);
                         finish();
                     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nighteye.myapplication" >
+    package="com.nighteye.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,9 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".RegisterSuccess" >
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".CheckMyComplaints"></activity>
+        <activity android:name=".AddComplaint" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".RegisterSuccess" />
         <activity android:name=".AuthLogin" />
         <activity android:name=".AuthDashBoard" />
         <activity android:name=".AuthRegNextStep" />
@@ -22,7 +24,7 @@
         <activity android:name=".AuthorityRegistration" />
         <activity android:name=".UserRegistration" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SplashActivity" >
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
