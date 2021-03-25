@@ -16,7 +16,3 @@ Key Features:
 Project Import instructions: 
 * This project can be imported to android studio with any version more than V.4.0.0
 * After importing ensure than you have installed dependencies for Material UI FireBase RealTime Database and Firebase Storage Instances.
-
-Installation procedure: 
-* Link for downloading aplication will be provided here after final Build is made:
-Link: ____________________
